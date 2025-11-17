@@ -38,8 +38,6 @@ plt.yticks(fontsize=20)都要大字体.
 颜色不能太相似. 不用红色和绿色, 因为红绿色盲不友好. 
 线稍微粗一点. 
 fontsize=20.
-
-
 ```
 
 
@@ -323,15 +321,21 @@ https://www.overleaf.com/gallery/tagged/acm-official#.WOuOk2e1taQ
 
 
 
-可以加附录吗?
+可以加附录吗? 不能
 
 一千个录取 200 个. 
 
 
 
+有的人说  期刊不用写满，我都是尽可能写少点，防止超页缴费
 
 
 
+dac26换成acm了 . https://dl.acm.org/doi/proceedings/10.1145/3768292
+
+
+
+在顶会（包括 ACM 系列会议）里，**摘要通常必须使用模板默认的格式**，不能自行加粗、加色或做其它强调。ACM 的官方 `acmart` 模板里，abstract 环境的正文是“正常字体、正常大小、正常粗细”，作者不应该修改样式，否则会违反格式规范。
 
 
 
