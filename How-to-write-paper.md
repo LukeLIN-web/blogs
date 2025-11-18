@@ -63,17 +63,11 @@ wandb 可以隐藏.
 
 drawio 先导入图, 然后画个长方形, 自己用取色器, 输入文字, 做一个 legend. drawio 可以输入 latex.
 
-不要用
-
 https://www.latexlive.com/   来验证我们的公式正不正确
 
 下载, 裁剪. 
 
-怎么显示这个波动的阴影呀?
-
-Smoothing 就可以, 
-
-
+怎么显示这个波动的阴影呀?  Smoothing 就可以, 
 
 # 写作技巧
 
@@ -127,8 +121,6 @@ results的文字,  只会看table和图, 没人会看文字.  文字最后写, �
 
 Gpt, prompt让他保持一致, 否则他会一个词用多种表达. 
 
-
-
 放到其他地方写了，这里写没用，这是background，没人认真看的 , 我 专门写一个章节列出 advantages. 写出 motivation, 总结两点. 
 
 Figures, drawings, tables, and photographs should be placed throughout the paper on the page (or the subsequent page) where they are first discussed. Do not group them together at the end of the paper. 
@@ -137,9 +129,9 @@ Figures, drawings, tables, and photographs should be placed throughout the paper
 
 写的时候, 不断总结, 先总结在 section 开头, 再总结在 introduction, 再总结到 abstract.
 
+同一个名词在论文里要对齐. 
 
-
-Writing like this will make readers feel that two separate techniques are combined in the paper. Better to highlight the connection between the two techniques so that they are combined comprehensively.  You can move this paragraph as the advantage of section 3.2. move the second drawback from AAAI submission to here. Space may be limited. We should still use the original paper architecture. We can make some paragraphs short. But remove the whole paragraph may change the paper architecture.
+Writing like this will make readers feel that two separate techniques are combined in the paper. Better to highlight the connection between the two techniques so that they are combined comprehensively.   Space may be limited. We should still use the original paper architecture. We can make some paragraphs short. But remove the whole paragraph may change the paper architecture.
 
 
 
@@ -191,13 +183,9 @@ table字体要弄好.
 - 要验证想法对不对, 可视化出来看是否确实选另外两个action 更好. 
 - 变厉害了, 你就要用啊! 为什么不用呢. 厉害的方法都要用起来, 直到不能变好为止, 模块全都加上.
 
-
-
 下次 测的时候, 记得要 测标准差或标准误差.
 
 先自己干几次, 干多了之后就要让 cursor 自动化. 
-
-
 
 # latex技巧
 
@@ -235,21 +223,15 @@ bm和 mathbf 都可以, 统一了就行.
 
 Check your log file!} You must fix any overflow into the margin (that means no overfull boxes in \LaTeX{}). \textbf{Nothing is permitted to intrude into the margin or gutter.}
 
-
-
 ## table
 
 把table 上下移动一下, 这样可以移动表的位置, 更接近文字. 要按文中出现的顺序来. 
-
-
 
 `\setlength{\abovecaptionskip}{2pt} ` 表格和文字之间,  距离太远也是可以缩短的. 
 
 如果只有两种, 可以把 “Platform” 这一列去掉，但通过**分块标题**（如 “A6000” 和 “Orin”）来区分不同平台.
 
 每个长标题分两行，第二行放单位或箭头符号说明（例如 ms、GB、Hz 等），并保持居中对齐：
-
-
 
 ### 附录
 
@@ -273,8 +255,6 @@ readme越全越好，核心代码越缺越好
 
 直接放reference后面, 不算页数. 
 
-
-
 # 会议期刊要求
 
 ##dac
@@ -282,8 +262,6 @@ readme越全越好，核心代码越缺越好
 The manuscript (up to 6 pages plus an additional 1 page for references only) is due by November 18, 2025 (5:00pm US Pacific Time). Each submitted manuscript must discuss original work that has not been previously published in other indexed research databases. It must not be actively reviewed at another conference or journal at the time of submission.
 
 手稿（最多 6 页加上另外 1 页 reference）截止日期为 2025 年 11 月 18 日（美国太平洋时间下午 5：00）。每篇提交的稿件都必须讨论以前未在其他索引研究数据库中发表过的原创作品。在提交时不得在其他会议或期刊上积极审查。
-
-标题、摘要（约 100 字）和所有合著者名单必须在 2025 年 11 月 11 日（美国太平洋时间下午 5：00）之前提交
 
 在 2025 年 11 月 18 日截止日期之后，将不允许添加新的合著者或重新排序作者。
 
@@ -297,8 +275,6 @@ https://ieeexplore.ieee.org/document/11133060 也有 hardware.
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11132779 
 
  https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11133396 他没有 hardware.
-
-
 
 是用 sigconf 模板
 
@@ -317,25 +293,43 @@ https://www.overleaf.com/gallery/tagged/acm-official#.WOuOk2e1taQ
 
 总结来说 如果你不知道该选哪个 就选第一个 authordraft。。。
 
-然后 sample-sigconf.tex 和 sample-sigconf-authordraft.tex 的区别 是前者是中稿之后要改的格式 后者是投稿用的格式
-
-
+ sample-sigconf.tex 和 sample-sigconf-authordraft.tex 的区别 是前者是中稿之后要改的格式 后者是投稿用的格式
 
 可以加附录吗? 不能
 
 一千个录取 200 个. 
 
-
-
 有的人说  期刊不用写满，我都是尽可能写少点，防止超页缴费
 
-
-
-dac26换成acm了 . https://dl.acm.org/doi/proceedings/10.1145/3768292
-
-
+dac 2026换成acm了 . https://dl.acm.org/doi/proceedings/10.1145/3768292
 
 在顶会（包括 ACM 系列会议）里，**摘要通常必须使用模板默认的格式**，不能自行加粗、加色或做其它强调。ACM 的官方 `acmart` 模板里，abstract 环境的正文是“正常字体、正常大小、正常粗细”，作者不应该修改样式，否则会违反格式规范。
+
+有人说,  ccs标签不能删, 其他随便
+
+permission MM, 官方说可删，但是建议别删。因为删了被录用的话这段也得加回来，留着方便最终版排版。
+
+dac 17%  11.18
+
+### icme
+
+https://2026.ieeeicme.org/icme-2026-call-for-papers/
+
+30% 
+
+12.12
+
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11209792
+
+https://dblp.org/db/conf/icmcs/index.html
+
+### ijcai
+
+January 19th. **Full paper submission deadline**  
+
+https://github.com/lixin4ever/Conference-Acceptance-Rate
+
+15% in 2023 https://www.ijcai.org/proceedings/2022/preface.pdf
 
 
 
@@ -430,7 +424,7 @@ https://www.nature.com/natmachintell/content
 
 可以选双盲 https://www.nature.com/natmachintell/submission-guidelines/dapr  ,默认不匿名. 
 
-他们的都 12 页, 图超级大, 都是一个图嵌套很多小图.  因为最多就 6 个 display item.
+ 12 页, 图超级大, 都是一个图嵌套很多小图.  因为最多就 6 个 display item.
 
 Result 好像就是 experiment.
 
@@ -439,8 +433,6 @@ https://www.nature.com/articles/s42256-025-01090-y
 discussion , 讨论我们的优点,  和 future work
 
 methods 好像主要写 setting. 
-
-
 
 ## 做 ppt
 
@@ -498,13 +490,5 @@ cite anything or the manuscript's reference list is unavailable, write "None".
 Tone: objective, polite, and constructive.
 - Suggested total length: 800-1200 words (adjust as needed to match manuscript
 ```
-
-
-
-
-
-### cvpr
-
- 2025.11.13 ddl.
 
  
