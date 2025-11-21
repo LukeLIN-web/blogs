@@ -187,6 +187,8 @@ table字体要弄好.
 
 先自己干几次, 干多了之后就要让 cursor 自动化. 
 
+代码管理: https://zhuanlan.zhihu.com/p/1973526373718065845
+
 # latex技巧
 
 dont forget the'~'  ,your should write ~\cite or ~\citet  ,  it is half space and it does not let the number gets seperated from 'Table'
