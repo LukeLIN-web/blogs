@@ -69,13 +69,21 @@ https://www.latexlive.com/   来验证我们的公式正不正确
 
 怎么显示这个波动的阴影呀?  Smoothing 就可以, 
 
+ggplot2 很不错, 比 seaborn 细粒度.
+
+
+
+
+
+
+
 
 
 ### nanobanaba
 
 https://mp.weixin.qq.com/s/8MhSvE5pWhnofezxYfCzlg
 
-
+画个快图还是可以的, 放论文不太行. 
 
 ```
 You are an expert ML illustrator.
@@ -144,6 +152,10 @@ STYLE REQUIREMENTS:
 
 Generate the final diagram.
 ```
+
+
+
+
 
 
 
