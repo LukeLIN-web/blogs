@@ -18,6 +18,15 @@ accelerate config # 配置
 
 ## DDP
 
+
+
+pytorch 分布式计算 你们都遇到过哪些 坑/bug？ - 白露未晞me的回答 - 知乎
+https://www.zhihu.com/question/351342218/answer/1977471497099550839
+
+第一个 nccl 坑还是挺常见的.
+
+
+
 pytorch 并行训练之DistributedDataParallel（代码样例和解释） - 格子不太方的文章 - 知乎 https://zhuanlan.zhihu.com/p/350301395
 
 [原创][深度][PyTorch] DDP系列第一篇：入门教程 - 996黄金一代的文章 - 知乎 https://zhuanlan.zhihu.com/p/178402798 写的很好
