@@ -584,3 +584,14 @@ Tone: objective, polite, and constructive.
 ```
 
  
+
+### 读论文的 prompt
+
+
+
+```
+讲了啥?
+模型结构是啥? 
+训练多久? 多少 gpu?
+```
+
