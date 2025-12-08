@@ -87,7 +87,7 @@ baseline 怎么获得呢?
 
 使用 b(s)=V(s) 的 policy gradient 等价于使用优势函数作为目标信号!
 
-### PPO 
+### PPO
 
 不需要 value function
 
