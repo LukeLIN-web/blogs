@@ -50,7 +50,21 @@ x_{t-1} = sqrt(α_{t-1}) * (预测的 x₀) + sqrt(1 - α_{t-1} - σ_t²) * (预
 
 
 
+### FLUX
 
+为啥 flux 要用双流?
+
+每个流专注处理自己的模态特征，**避免梯度互相污染**。
+
+为啥要有 gate mlp?
+
+让模型**自动学习每一层需要多少语言信息**。 加入 gate（通常初始化为 0 或很小）能保证：模型先学“如何画好图像”  再逐渐学“文本怎么影响图像”.
+
+
+
+
+
+![flux](https://pic4.zhimg.com/v2-6ad85c4edc90c010ac52cf3ae992c577_1440w.jpg)
 
 
 
@@ -62,7 +76,7 @@ Quasar-ViT: Hardware-Oriented Quantization-Aware Architecture Search for Vision 
 
 HeatViT: Hardware-Efficient Adaptive Token Pruning for Vision Transformers: 
 
- 很容易录了HPCA, algorithm  publish 别的paper了.   FPGA是林雪的学生写的, 回国了. 动态remove patchs, sequence layer也可以remove,  可以predict, 训练了一个predicter.  优点就是prune 一层,  acc下降了, 不会传播. 没人知道 hardware怎么支持不同dimension的. 
+ 很容易录了HPCA, algorithm  publish 别的paper了.    动态remove patchs, sequence layer也可以remove,  可以predict, 训练了一个predicter.  优点就是prune 一层,  acc下降了, 不会传播. 没人知道 hardware怎么支持不同dimension的. 
 
 Peeling the Onion: Hierarchical Reduction of Data Redundancy for Efficient Vision Transformer Training
 
