@@ -2,10 +2,6 @@
 
 有了GPT 之后, 想系统学习也许只需要一个目录,  不断问GPT 细节就行. 
 
-
-
-
-
 # stanford CS336 
 
 
@@ -13,11 +9,8 @@
 ### lec1
 
 ```
-
-
-bpe, ":\n" ,  "):\n" have high frequency, bpe  will assign unique id.
+bpe will find ":\n" ,  "):\n" have high frequency, will assign unique id for them.
 but seems popular llm are all using bpe. because it is simple and does not need training
-
 ```
 
 

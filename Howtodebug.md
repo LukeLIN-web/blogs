@@ -1,7 +1,5 @@
 #### Python
 
-1. 在cpu上 debug.  model不要放在gpu上.  
-2. pdb step也挺麻烦, 不如print exit. 
 3. vscode的报错可能比终端要少. 终端执行的报错比pytest少.  vscode可以用 debug直接输入某个数值查看. 
 4. 出错原因:为什么?  然后往上一层函数排查. 
 5. 大图这样太难debug了.  思想就是搞个小图, 不要搞这么大的图.  最短的代码复现. 都先看最小的, 小的对了再看大的. 
