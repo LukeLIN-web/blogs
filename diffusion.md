@@ -66,16 +66,6 @@ x_{t-1} = sqrt(α_{t-1}) * (预测的 x₀) + sqrt(1 - α_{t-1} - σ_t²) * (预
 
 
 
-
-
-Quasar-ViT: Hardware-Oriented Quantization-Aware Architecture Search for Vision Transformers
-
-HeatViT: Hardware-Efficient Adaptive Token Pruning for Vision Transformers: 
-
- 很容易录了HPCA, algorithm  publish 别的paper了.    动态remove patchs, sequence layer也可以remove,  可以predict, 训练了一个predicter.  优点就是prune 一层,  acc下降了, 不会传播. 没人知道 hardware怎么支持不同dimension的. 
-
-Peeling the Onion: Hierarchical Reduction of Data Redundancy for Efficient Vision Transformer Training
-
 一文读懂Stable Diffusion 论文原理+代码超详细解读 - 蓝色仙女的文章 - 知乎
 https://zhuanlan.zhihu.com/p/640545463
 
@@ -181,61 +171,6 @@ skip分支代码在哪里?`hidden_states = torch.cat([hidden_states, res_hidden_
 视野范围越来越大, 但是看不到小的了.  两个数之间 距离其实越来越大. 只能看到最big picture, 看不到细节.  所以需要大层面的resnet. 用concat. 
 
 attention和 spatial transformer 差异是啥?  
-
-## pruning
-
-需要大规模数据集来重新训练这些轻量级模型.
-
-#### SnapFusion
-
-Text-to-Image Diffusion Model on Mobile Devices within Two Seconds nips 23
-
-没有公开代码. 仓库只有图. 
-
-prune和 NAS, 需要微调. 
-
-fig2 说 UNet 中间部分 参数多, , the slowest parts of UNet are the input and output stages with the largest feature resolution, as spatial cross-attentions have quadratic computation complexity with respect to feature size (tokens).
-
- step distillation是怎么做的? 
-
-input and output stages 指的是哪个stage?具有最大特征分辨率 是哪个? 
-
-通过评估单个残差块和注意力块的重要性获得高效的 UNet 架构. 怎么评估? 
-
-3.1 efficient Unet
-
-跳过一部分 crossattention, resnet, 是or 的关系还是两个随机独立?
-
-algo1
-
-```
-while not conver:
-    perform robust training
-    if f perform architecture evolving at this iteration:
-        perform architecture evolving
-        for eachblock[i, j]:
-            delta_clip = evaluate_block(去掉i, j, )
-            delta_latency = evaluate_block(i, j)
-        if latency > latency_threshold:
-            A = argmin(delta_clip/delta_latency)
-        else:
-            A = argmin(delta_clip/delta_latency)
-这个算法不讲人话,非常难懂. 
-```
-
-3.2 image decoder
-
-applying 50% uniform channel pruning to the original image decoder
-
-#### 4 Step Distillation
-
-distilling the teacher, *e.g.*, at 32 steps, to a student that runs at fewer steps, *e.g.*, 16 steps
-
-step就是循环Unet 32次. 
-
-不逐步进行,  因为凭经验观察到渐进式蒸馏比直接蒸馏略差. 32蒸馏到16, 16蒸馏到8 step.
-
-16node*8个 40G A100GPU.
 
 ## stable video diffusion
 
