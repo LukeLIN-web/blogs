@@ -3,24 +3,36 @@
 https://karpathy.github.io/2019/04/25/recipe/
 karpathy的经验。
 教你怎么在ML debug。
+
 1. 与数据融为一体
+
 有一次我发现数据里有重复的例子。还有一次我发现图片/标签损坏了。我会寻找数据不平衡和偏见。我通常也会关注自己对数据的分类流程，这暗示了我们最终将探索的架构类型。举个例子——非常局部的特征足够吗，还是我们需要全局背景？变化有多大，形式如何？哪些变异是虚假的，可以预处理去除？空间位置重要吗，还是我们想要平均分配？细节有多重要？我们能承受多大程度的下采样？
 
 写一些简单的代码，用你能想到的任何方式搜索/筛选/排序（比如标签类型、注释大小、注释数量等），并可视化它们的分布和任意轴上的离群值。尤其是异常值，几乎总是会发现数据质量或预处理上的漏洞。
 
 2. 建立端到端的培训/评估骨架 + 获取模糊基线
+   
 修正随机种子 。一定要使用固定的随机种子，这样可以保证运行代码两次后结果会一致。这样可以减少变异因素，有助于保持理智。
+
 简化 。一定要关闭任何不必要的花哨功能。举个例子，这个阶段一定要关闭任何数据增强。数据增强是一种规范化策略，我们可能会以后加入，但目前这只是另一个引入愚蠢漏洞的机会。
+
 init well. Initialize the final layer weights correctly. E.g. if you are regressing some values that have a mean of 50 then initialize the final bias to 50. If you have an imbalanced dataset of a ratio 1:10 of positives:negatives, set the bias on your logits such that your network predicts probability of 0.1 at initialization. Setting these correctly will speed up convergence and eliminate “hockey stick” loss curves where in the first few iteration your network is basically just learning the bias.
+
 输入-独立基线 。训练一个输入无关的基线，（比如最简单的就是把所有输入都设为零）。这应该比你直接插入数据但不归零时表现得差。是吗？也就是说，你的模型是否学会从输入中提取任何信息？
+
 过拟合一批 。对仅有少数样本（例如最小两个）的单批次进行过拟合。为此，我们增加模型容量（例如添加层或过滤器），并验证能否达到最低的损失（例如零）。我还喜欢在同一张图中同时可视化标签和预测值，确保当我们达到最小损失时，它们能完美对齐。如果没有，说明某处有 bug，我们无法继续下一阶段。
+
 visualize just before the net. The unambiguously correct place to visualize your data is immediately before your y_hat = model(x) (or sess.run in tf). That is - you want to visualize exactly what goes into your network, decoding that raw tensor of data and labels into visualizations. This is the only “source of truth”. I can’t count the number of times this has saved me and revealed problems in data preprocessing and augmentation.
+
 可视化预测动态 。我喜欢在训练过程中可视化固定测试批次的模型预测。这些预测的“动态”会让你对训练进展有极好的直觉。很多时候，如果数据晃动过大，可能会感觉到网络“难以适应”你的数据，从而暴露出不稳定。非常低或非常高的学习率也很容易从抖动的程度中显现出来。
+
 推广一个特殊情况 。这其实是个比较通用的编程建议，但我经常看到有人因为承担太多事情，从零开始写一个相对通用的功能，结果就出了 bug。我喜欢写一个非常具体的函数来配合我现在正在做的事情，让它工作，然后再泛化，确保得到相同的结果。这通常适用于向量化代码，我几乎总是先写出完全循环的版本，然后再逐循环转换成向量化代码。
 
 
-3. Overfit
+4. Overfit
+
 我喜欢采用的寻找好模型的方法有两个阶段：首先，模型足够大以至于可以过拟合（即专注于训练损失），然后适当正则化它（放弃部分训练损失以改善验证损失）。我喜欢这两个阶段的原因是，如果任何型号都无法达到低错误率，这可能再次说明存在问题、漏洞或配置错误。
+
 我总是建议大家找最相关的论文，复制粘贴他们最简单的架构，这样能实现良好的性能。比如，如果你在分类图像，不要做英雄，第一次运行时直接复制粘贴 ResNet-50。你可以以后做更自定义的游戏来通关。
 
 complexify only one at a time. If you have multiple signals to plug into your classifier I would advise that you plug them in one by one and every time ensure that you get a performance boost you’d expect. Don’t throw the kitchen sink at your model at the start. There are other ways of building up complexity - e.g. you can try to plug in smaller images first and make them bigger later, etc.
@@ -31,16 +43,23 @@ do not trust learning rate decay defaults. ImageNet would decay by 10 on epoch 3
 
 4. 正则化
 据我所知，增加更多数据几乎是唯一能保证单调地提升配置良好神经网络性能的方法。另一个是ensemble（如果你负担得起的话），但这最多只能用~5 个模型。
+
 数据增强 。仅次于真实数据的方法是半假数据——尝试更激进的数据增强。
+
 stick with supervised learning. Do not get over-excited about unsupervised pretraining  (though NLP seems to be doing pretty well with BERT and friends these days, quite likely owing to the more deliberate nature of text, and a higher signal to noise ratio).很有趣。
+
 输入维度更小 。移除可能包含虚假信号的特征。任何额外的虚假输入，如果你的数据集很小，都可能更容易过度拟合。同样，如果低层次细节不太重要，试着输入更小的图像。
+
 模型尺寸较小 。在很多情况下，你可以利用网络的领域知识约束来缩小其规模。举例来说，过去在 ImageNet 的主干网顶部使用完全连通图层是流行的，但现在这些图层被简单的平均池化取代，过程中消除了大量参数。
+
 减少batch size 。Due to the normalization inside batch norm smaller batch sizes somewhat correspond to stronger regularization. This is because the batch empirical mean/std are more approximate versions of the full mean/std so the scale & offset “wiggles” your batch around more.
+
 drop. Add dropout. Use dropout2d (spatial dropout) for ConvNets. Use this sparingly/carefully because dropout does not seem to play nice with batch normalization.
 weight decay. Increase the weight decay penalty.
+
 early stopping. Stop training based on your measured validation loss to catch your model just as it’s about to overfit.
 
-5. tune
+6. tune
 神经网络通常对某些参数的敏感度远高于其他参数。在极限情况下，如果参数 a 很重要但改变 b 没有影响，那么你宁愿更彻底地采样 a，而不是多次在几个固定点采样。
 参考chatgpt什么是random search。  https://jmlr.csail.mit.edu/papers/volume13/bergstra12a/bergstra12a.pdf
 
