@@ -16,13 +16,25 @@ karpathy的经验。
 
 简化 。一定要关闭任何不必要的花哨功能。举个例子，这个阶段一定要关闭任何数据增强。数据增强是一种规范化策略，我们可能会以后加入，但目前这只是另一个引入愚蠢漏洞的机会。
 
-init well. Initialize the final layer weights correctly. E.g. if you are regressing some values that have a mean of 50 then initialize the final bias to 50. If you have an imbalanced dataset of a ratio 1:10 of positives:negatives, set the bias on your logits such that your network predicts probability of 0.1 at initialization. Setting these correctly will speed up convergence and eliminate “hockey stick” loss curves where in the first few iteration your network is basically just learning the bias.
+init well. 正确初始化最后一层的权重。
+
+例如：如果你在做回归，目标值的均值大约是 50，那么就把最后一层的 bias 初始化为 50。
+
+如果你的数据集是类别不平衡的，比如正负样本比例是 1:10，那么就把 logits 的 bias 设成一个值，使得网络在初始化时预测的概率约为 0.1。
+
+正确设置这些初始化可以显著加快收敛速度，并避免那种“hockey stick”式的 loss 曲线——即训练初期网络基本只是在学习 bias。
 
 输入-独立基线 。训练一个输入无关的基线，（比如最简单的就是把所有输入都设为零）。这应该比你直接插入数据但不归零时表现得差。是吗？也就是说，你的模型是否学会从输入中提取任何信息？
 
 过拟合一批 。对仅有少数样本（例如最小两个）的单批次进行过拟合。为此，我们增加模型容量（例如添加层或过滤器），并验证能否达到最低的损失（例如零）。我还喜欢在同一张图中同时可视化标签和预测值，确保当我们达到最小损失时，它们能完美对齐。如果没有，说明某处有 bug，我们无法继续下一阶段。
 
-visualize just before the net. The unambiguously correct place to visualize your data is immediately before your y_hat = model(x) (or sess.run in tf). That is - you want to visualize exactly what goes into your network, decoding that raw tensor of data and labels into visualizations. This is the only “source of truth”. I can’t count the number of times this has saved me and revealed problems in data preprocessing and augmentation.
+visualize just before the net. 唯一毫无歧义、绝对正确的可视化位置，是在 y_hat = model(x) 之前（或 TF 里的 sess.run 之前）。
+
+也就是说，你应该可视化真正喂进网络的张量，把这份原始的 data 和 label 解码成可视化结果。
+
+这是唯一的 “source of truth”。
+
+无数次经验表明，这一步能直接暴露数据预处理和数据增强中的问题。
 
 可视化预测动态 。我喜欢在训练过程中可视化固定测试批次的模型预测。这些预测的“动态”会让你对训练进展有极好的直觉。很多时候，如果数据晃动过大，可能会感觉到网络“难以适应”你的数据，从而暴露出不稳定。非常低或非常高的学习率也很容易从抖动的程度中显现出来。
 
@@ -35,9 +47,23 @@ visualize just before the net. The unambiguously correct place to visualize your
 
 我总是建议大家找最相关的论文，复制粘贴他们最简单的架构，这样能实现良好的性能。比如，如果你在分类图像，不要做英雄，第一次运行时直接复制粘贴 ResNet-50。你可以以后做更自定义的游戏来通关。
 
-complexify only one at a time. If you have multiple signals to plug into your classifier I would advise that you plug them in one by one and every time ensure that you get a performance boost you’d expect. Don’t throw the kitchen sink at your model at the start. There are other ways of building up complexity - e.g. you can try to plug in smaller images first and make them bigger later, etc.
+一次只增加一种复杂度（complexify only one at a time）
 
-do not trust learning rate decay defaults. ImageNet would decay by 10 on epoch 30. If you’re not training ImageNet then you almost certainly do not want this. If you’re not careful your code could secretely be driving your learning rate to zero too early, not allowing your model to converge. In my own work I always disable learning rate decays entirely (I use a constant LR) and tune this all the way at the very end.
+如果你的分类器需要融合多个信号，建议一次只加入一个，并确保性能提升符合预期。
+
+增加复杂度还有其他方式，比如：
+
+先用小分辨率图像训练，再逐步增大输入尺寸。
+
+不要盲信学习率衰减的默认设置
+
+ImageNet 常见做法是在第 30 个 epoch 把 learning rate 降 10 倍。
+
+但如果你不是在训练 ImageNet，几乎可以肯定不该这么做。
+
+一不小心，你的代码可能会悄悄把学习率过早降到接近 0，导致模型无法收敛。
+
+在我自己的工作中，我通常完全关闭 learning rate decay（使用 constant LR），只在最后阶段再统一调这个超参。
 
  
 
@@ -46,20 +72,23 @@ do not trust learning rate decay defaults. ImageNet would decay by 10 on epoch 3
 
 数据增强 。仅次于真实数据的方法是半假数据——尝试更激进的数据增强。
 
-stick with supervised learning. Do not get over-excited about unsupervised pretraining  (though NLP seems to be doing pretty well with BERT and friends these days, quite likely owing to the more deliberate nature of text, and a higher signal to noise ratio).很有趣。
-
 输入维度更小 。移除可能包含虚假信号的特征。任何额外的虚假输入，如果你的数据集很小，都可能更容易过度拟合。同样，如果低层次细节不太重要，试着输入更小的图像。
 
 模型尺寸较小 。在很多情况下，你可以利用网络的领域知识约束来缩小其规模。举例来说，过去在 ImageNet 的主干网顶部使用完全连通图层是流行的，但现在这些图层被简单的平均池化取代，过程中消除了大量参数。
 
-减少batch size 。Due to the normalization inside batch norm smaller batch sizes somewhat correspond to stronger regularization. This is because the batch empirical mean/std are more approximate versions of the full mean/std so the scale & offset “wiggles” your batch around more.
+减少batch size 。由于 batch normalization 的存在，较小的 batch size 在某种程度上相当于更强的正则化。
+原因是：batch 的均值和方差只是总体统计量的粗略估计，
+这会让 scale 和 offset 在训练中“抖动”得更厉害。 
 
-drop. Add dropout. Use dropout2d (spatial dropout) for ConvNets. Use this sparingly/carefully because dropout does not seem to play nice with batch normalization.
-weight decay. Increase the weight decay penalty.
+drop / weight decay / early stopping
 
-early stopping. Stop training based on your measured validation loss to catch your model just as it’s about to overfit.
+dropout：加入 dropout；ConvNet 中使用 dropout2d（spatial dropout）
+注意要谨慎使用，因为 dropout 和 batch norm 一起用会有问题
+weight decay：增大 weight decay 系数
+early stopping：根据验证集 loss 提前停止训练，在模型即将过拟合时停下
 
 6. tune
+   
 神经网络通常对某些参数的敏感度远高于其他参数。在极限情况下，如果参数 a 很重要但改变 b 没有影响，那么你宁愿更彻底地采样 a，而不是多次在几个固定点采样。
 参考chatgpt什么是random search。  https://jmlr.csail.mit.edu/papers/volume13/bergstra12a/bergstra12a.pdf
 
