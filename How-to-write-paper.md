@@ -55,11 +55,7 @@ ppt 和 drawio 都可以, 记得用
 
 subfigure  mini figure
 
-wandb 怎么 把图导出 合并? 
 
-wandb 保存 pdf 都是黑框, svg   在 ppt  会变成透明的, 下载 svg 甚至是网页截图,  网页卡顿的转圈都会被他保存下来. wandb 导出图的功能非常差, 基本不可用. 
-
-wandb 可以隐藏. 
 
 drawio 先导入图, 然后画个长方形, 自己用取色器, 输入文字, 做一个 legend. drawio 可以输入 latex.
 
@@ -67,12 +63,23 @@ https://www.latexlive.com/   来验证我们的公式正不正确
 
 下载, 裁剪. 
 
-怎么显示这个波动的阴影呀?  Smoothing 就可以, 
+
 
 ggplot2 很不错, 比 seaborn 细粒度.
 
 
 
+### wandb 
+wandb 怎么 把图导出 合并? 
+
+wandb 保存 pdf 都是黑框, svg   在 ppt  会变成透明的, 下载 svg 甚至是网页截图,  网页卡顿的转圈都会被他保存下来. wandb 导出图的功能非常差, 基本不可用. 
+
+wandb 可以隐藏. 
+怎么显示这个波动的阴影呀?  Smoothing 就可以, 
+
+只能在一根curve里做运算, 没法减别的. https://docs.wandb.ai/models/app/features/panels/line-plot/reference#expressions  
+custom chart 里面用 vega 应该能算出新的曲线  
+有个report 和 compare 的功能, 
 
 
 
