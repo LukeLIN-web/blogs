@@ -151,6 +151,16 @@ normalize, 就是 标准差.
 
 
 
+**答案正确且易验证结果的数据，接近百分之百准确的判分模型，完全 on-policy，尽最大可能保证训推一致，给较大的 max_response_length 保证没有长度打压，不引入任何帮助稳定训练的正则项**。 参考:  Make PostTrain Solid Again - ybq的文章 - 知乎
+
+https://zhuanlan.zhihu.com/p/1995265459285694156
+
+
+
+
+
+
+
 # physics of LM
 
 https://physics.allen-zhu.com/ 

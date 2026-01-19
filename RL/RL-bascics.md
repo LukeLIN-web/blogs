@@ -1,5 +1,11 @@
 
 
+learning resource webiste
+
+[核心算法及其实现 — Spinning Up 文档](https://spinningup.readthedocs.io/zh_CN/latest/user/algorithms.html)
+
+
+
 https://huggingface.co/learn/deep-rl-course/unit4/hands-on
 
 
@@ -38,3 +44,19 @@ GRPO
 重要性采样的本质是：我们希望在新的分布下计算期望，但数据却来自旧分布。为此，我们使用新旧策略在同一动作上的概率比作为修正权重.
 
 这样就可以利用离线数据（来自旧策略）来评估新策略的期望，避免每次更新都重新采样，从而降低成本。然而，如果新旧策略差异过大，权重的方差会非常高，容易导致训练不稳定。
+
+```
+# 标准 PPO clipping
+ratio = pi_new(token) / pi_old(token)  # 新旧策略的概率比. pi_old(token)：更新前的策略，对这个 token 的输出概率
+pi_new(token)：更新后的策略，对这个 token 的输出概率. 
+直觉：ratio 衡量"策略变化了多少"
+ratio = 1 → 策略没变
+ratio = 2 → 新策略认为这个 token 概率翻倍了
+
+clipped_ratio = torch.clamp(ratio, 1 - eps, 1 + eps)  # 通常 eps=0.2
+
+loss = -min(ratio * advantage, clipped_ratio * advantage)
+```
+
+
+
