@@ -2,6 +2,12 @@
 
 有了GPT 之后, 想系统学习也许只需要一个目录,  不断问GPT 细节就行. 
 
+
+
+Princeton CS336（Kernel & Transformer 优化课）
+
+
+
 # stanford CS336 
 
 
@@ -159,6 +165,36 @@ https://zhuanlan.zhihu.com/p/1995265459285694156
 
 
 
+### rloo
+
+在估计 reward 的时候不再除以“标准差”。
+
+
+
+### TIS
+
+（Token‑level Importance Sampling）
+
+**TIS 按 token 级别做重要性采样修正**：
+
+- 计算行为策略和参考策略之间的概率比
+- 对比率差异较大的 token 做 reweight 或修正
+- 减少训练更新中那些在推理时概率差异大的 token 的影响
+
+IcePop 是一种更进一步的策略，专为 **MoE 强化学习训练中的训推不一致** 设计：
+
+### 它的做法：
+
+1. **双向截断（Bidirectional truncation）**
+   - 如果某 token 的训练概率与推理概率差异过大，则这个 token 不参与梯度计算
+2. **掩码（Mask）**
+   - 直接把這些极端不一致的输出在训练中 “丢掉”
+   - 防止它们对梯度造成扭曲或爆炸
+
+
+
+
+
 
 
 # physics of LM
@@ -243,7 +279,23 @@ https://arxiv.org/abs/2404.05405
 
 这里开始没有 arxiv 了.
 
-Canon layer, 可以改善模型层内相邻token之间的水平信息流,计算附近token表示的加权总和. 显著提升了NoPE和GLA模型的性能.  有助于模型提高推理能力和可扩展性.
+Canon layer, 可以改善模型层内相邻token之间的水平信息流,计算附近token表示的加权总和. 显著提升了NoPE和GLA模型的性能.  有助于模型提高推理能力和可扩展性. 
+
+### part4.2 
+
+继续讲 linear 模型的区别,  
+
+linear 模型 fail at  in context retrieval . 所以至少要 hybird.
+
+应该pretrain 就开始训练 Multi hop 数据.
+
+
+
+
+
+
+
+
 
 
 
@@ -682,9 +734,3 @@ Grouped-Query Attention 是啥意思?
 注意力是“跨 token 信息交互”，如果只在结果上加个 ReLU，模型相当于只是“过滤一下”，而不是“深度处理”每个 token 的表示。
 
 
-
-
-
-
-
-Princeton CS336（Kernel & Transformer 优化课）

@@ -26,8 +26,6 @@ GRPO 的思想是，在一个批次（group）内，对同一个问题生成的�
 
 # Preference-based RL
 
-
-
 ### DPO (Direct Preference Optimization)
 
 - **思路**：不通过 RL，只通过最大化 “preferred response 比 rejected response 概率更高” 来隐式等价优化策略。
