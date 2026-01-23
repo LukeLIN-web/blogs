@@ -6,11 +6,9 @@
 
 Princeton CS336（Kernel & Transformer 优化课）
 
-
+https://github.com/wdndev/llm_interview_note
 
 # stanford CS336 
-
-
 
 ### lec1
 
@@ -673,64 +671,5 @@ reverse KL 惩罚 Q 在 p 没有质量的地方分配质量, 导致 mode seeking
 对数平方, 保证 估计量非负, 来减少方差. 但是是有偏估计.
 
 所以提出了一个方式, 换一种方法无偏估计, 
-
-
-
-# 面试题
-
-
-
-为什么RMSNorm (Root Mean Square Layer Normalization)，相比传统的 LayerNorm 计算更简单、效率更高?
-
-不计算均值,没有 beta, 只做尺度归一化,  “只把向量缩放到合适大小” → 保留方向，不干涉均值.LLaMA 实验证明它能更稳定地收敛.  
-
-
-
-````python
-
-
-wq = linear()
-3 个 linear. 
-
-Q = x  * Wq
-K = x * Wk
-V = x * Wv
-
-需要 view 一下
-
-xq, xk = apply_rotary_emb(xq, xk, freqs_cis=freqs_cis)
-
-存一下 最新的 xk 和 xv 到 cache kv
-
-得到整个完整的 k 和v 
-repeat keys . 和 values
-每个 key-value 头需要被复制 8 次来匹配查询头的数量。
-
-
-scores = Q @ K^T  torch.matmul (xq, keys) / math.sqrt (self. head im)
-scores  = scores  / sqrt(k.shape(-1))#也是对的. 
-weight = F.softmax(scores, dim = -1)
-Output =  torch.matmul  Attention_Weights ,V
-return  self.wo(output)
-
-
-
-````
-
-rope 旋转是啥意思?
-
-就是 x sin 和cos  
-
-Grouped-Query Attention 是啥意思?
-
-看代码吧. 就复制kv 
-
-为什么 attention 要 scale 再Softmax ?
-
-差值一样, softmax后就一样,  scale 后差值绝对值变小了. 
-
-为什么 transformer block 后要加FFN . 
-
-注意力是“跨 token 信息交互”，如果只在结果上加个 ReLU，模型相当于只是“过滤一下”，而不是“深度处理”每个 token 的表示。
 
 
