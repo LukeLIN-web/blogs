@@ -356,11 +356,9 @@ readme越全越好，核心代码越缺越好
 
 直接放reference后面, 不算页数. 
 
-# 会议期刊要求
+# 会议要求
 
 http://aideadlines.org/?sub=ML,CV,NLP,RO,SP,DM,AP,KR,HCI,IRSM,MISC
-
-
 
 ##dac
 
@@ -436,17 +434,11 @@ https://github.com/lixin4ever/Conference-Acceptance-Rate
 
 15% in 2023 https://www.ijcai.org/proceedings/2022/preface.pdf
 
- ijcai 是A 会, 比别的A 简单, 但是还是很难中, 15%.    
+ ijcai 是A 会, 比别的A 简单, 但是还是很难中, 15%.  据说很多内部交易  ,,而且ijcai好像每年就收几百篇, 
 
 ijcnn,  25 年 **39%**. 接受率.  Ijcnn是 ccf c,  中国人认为没有用, 回国没人看.不过投的人越来越多了, 23 年甚至 54% 接受率.  
 
 icip, ddl 2 月 4 日.   44% 接受率.
-
-
-
-
-
-
 
 ## aaai
 
@@ -472,12 +464,6 @@ aaai section默认没有, 所以没法ref.
 
 这个和 iclr 一样会公开review
 
-https://jmlr.org/tmlr/ *使用双盲评审*
-
-https://www.jmlr.org/author-info.html  JMLR 发表有关机器学习理论和方法的论文，但不发表机器学习在其他领域的应用。 好像是单盲的. 
-
-TPAMI  https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34    期刊主要是要很久tpami. 被拒花了得8/9个月  
-
 Submissions may be any length, but a paper’s length should be justified by its content 
 
 12 页以上审稿时间更长. 
@@ -494,11 +480,23 @@ Submissions may be any length, but a paper’s length should be justified by its
 
 
 
+
+
+## 期刊
+
+期刊一般好像都有来回改的余地
+
 ### jmlr
 
 jmlr 都是很长的,其中一篇91页，七十几页推导，还有一篇在投，80页左右.
 
-## Nature Machine Intelligence
+https://jmlr.org/tmlr/ *使用双盲评审*
+
+https://www.jmlr.org/author-info.html  JMLR 发表有关机器学习理论和方法的论文，但不发表机器学习在其他领域的应用。 好像是单盲的. 
+
+TPAMI  https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34    期刊主要是要很久tpami. 被拒花了得8/9个月  
+
+### Nature Machine Intelligence
 
 nature 都是要从0到1的问题，从无到有的。
 
@@ -632,5 +630,9 @@ Tone: objective, polite, and constructive.
 
 
 
+### rebuttal
 
+We sincerely thank you for your constructive feedback.  
+
+应该可以，再多写点，引用些论文中的数据，比如 as demonstrated in  section xxx （or table xxx）, we achieve an acceleration of XXX on XXX device (or memory reduction) for which model, 把跟这个track相关的性能提升的performance 数据列一列
 
