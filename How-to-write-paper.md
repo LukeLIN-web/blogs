@@ -358,6 +358,10 @@ readme越全越好，核心代码越缺越好
 
 # 会议期刊要求
 
+http://aideadlines.org/?sub=ML,CV,NLP,RO,SP,DM,AP,KR,HCI,IRSM,MISC
+
+
+
 ##dac
 
 The manuscript (up to 6 pages plus an additional 1 page for references only) is due by November 18, 2025 (5:00pm US Pacific Time). Each submitted manuscript must discuss original work that has not been previously published in other indexed research databases. It must not be actively reviewed at another conference or journal at the time of submission.
@@ -431,6 +435,16 @@ January 19th. **Full paper submission deadline**
 https://github.com/lixin4ever/Conference-Acceptance-Rate
 
 15% in 2023 https://www.ijcai.org/proceedings/2022/preface.pdf
+
+ ijcai 是A 会, 比别的A 简单, 但是还是很难中, 15%.    
+
+ijcnn,  25 年 **39%**. 接受率.  Ijcnn是 ccf c,  中国人认为没有用, 回国没人看.不过投的人越来越多了, 23 年甚至 54% 接受率.  
+
+icip, ddl 2 月 4 日.   44% 接受率.
+
+
+
+
 
 
 
@@ -540,10 +554,6 @@ methods 好像主要写 setting.
 https://slideslive.com/icml-2024
 
 做 ppt 最需要人手把手教, 比文字更难传播.
-
-
-
-
 
 ai 审稿 prompt:
 
