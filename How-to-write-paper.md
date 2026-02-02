@@ -26,8 +26,6 @@ iconfont来找矢量图.
 
 spiderweb chart, matplotlib 里面有. 
 
-
-
 把亮点集中在一个图, realworld, overallbenchmark,  不同 modality.
 
 一张图的信息量要大, 去参考优秀论文怎么画的.
@@ -39,8 +37,6 @@ plt.yticks(fontsize=20)都要大字体.
 线稍微粗一点. 
 fontsize=20.
 ```
-
-
 
 导出矢量图
 
@@ -55,19 +51,13 @@ ppt 和 drawio 都可以, 记得用
 
 subfigure  mini figure
 
-
-
 drawio 先导入图, 然后画个长方形, 自己用取色器, 输入文字, 做一个 legend. drawio 可以输入 latex.
 
 https://www.latexlive.com/   来验证我们的公式正不正确
 
 下载, 裁剪. 
 
-
-
 ggplot2 很不错, 比 seaborn 细粒度.
-
-
 
 ### wandb 
 wandb 怎么 把图导出 合并? 
@@ -628,11 +618,10 @@ Tone: objective, polite, and constructive.
 
 如果上来就要求你写所有的代码, 上来就要求你给他做个 ppt, 多半不太好. 
 
-
-
 ### rebuttal
 
 We sincerely thank you for your constructive feedback.  
 
 应该可以，再多写点，引用些论文中的数据，比如 as demonstrated in  section xxx （or table xxx）, we achieve an acceleration of XXX on XXX device (or memory reduction) for which model, 把跟这个track相关的性能提升的performance 数据列一列
 
+you can use gpt. give the conference information and your paper it can come up with a coherent strong answer
