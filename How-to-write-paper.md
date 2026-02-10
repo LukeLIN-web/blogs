@@ -14,6 +14,8 @@ nips是单列, 所以图一般都是横着,
 
 数字放到bar上面
 
+线要足够粗, 字体要足够大, 字要少
+
 科研太需要画图能力, 画图很难被ai 替代. 
 
 可以 python 画了, 用 ppt 加字体, 
@@ -55,7 +57,7 @@ drawio 先导入图, 然后画个长方形, 自己用取色器, 输入文字, �
 
 https://www.latexlive.com/   来验证我们的公式正不正确
 
-下载, 裁剪. 
+下载, 选 裁剪. 不然会有大量白边. 
 
 ggplot2 很不错, 比 seaborn 细粒度.
 
@@ -157,6 +159,8 @@ Generate the final diagram.
 
 
 # 写作技巧
+
+  https://github.com/yzhao062/cs-paper-checklist 
 
 用figma把矢量图图表字体调大，确保不放大看图也能一眼看清楚图表x轴y轴。疯狂用cursor让他以何凯明老师的风格，把abs和intro写到非常清晰，用斜体加粗一句话说明解决什么领域gap问题. 最关键是要icl，要拿你觉得比较好的论文的相关部分先丢给他，让他学一下写法.  kaiming暗通道的论文的写法
 
