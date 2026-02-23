@@ -156,8 +156,6 @@ Generate the final diagram.
 
 
 
-
-
 # 写作技巧
 
   https://github.com/yzhao062/cs-paper-checklist 
