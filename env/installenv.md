@@ -12,8 +12,6 @@ uv sync --active --inexact
 
 wsl2只是虚拟机底层，还要去应用商店下载ubuntu系列。安装完wsl的ubuntu 后，再去docker-desktop中设置，把引擎改为ubuntu。 wsl2就是一个虚拟机，但能获取硬件资源。 没有wsl2的docker是用windows的docker引擎，和nv那些基于linux的原版docker镜像不兼容的。
 
-
-
 #### pip
 
 几个常用的参数: 
@@ -36,10 +34,6 @@ mamba会快很多.
 
 https://carpentries-incubator.github.io/introduction-to-conda-for-data-scientists/  conda 从入门到入土. 
 
-
-
-
-
 因为 V100 编译的二进制机器码不能在A100上跑.  用nvcc编译CUDA需要指定架构号. 所以还是要用和别人一模一样的设备.  GPU的架构 -> 驱动 -> CUDA tool kit -> nvcc -> pytorch 
 
 #### Nvidia driver
@@ -52,17 +46,13 @@ dpkg -l nvidia-*|grep ^ii ii就是安装了的
 apt list | grep nvidia-container-toolkit # 查看是否安装toolkit, 有[installed]就是安装了.
 ```
 
-cuda,  You need 387 driver for 9.1 toolkit, 384 corresponds to 9.0
-
-用` sudo apt-get --purge remove "*nvidia*"`删除了所有, 
+用` sudo apt-get --purge remove "*nvidia*"`删除了所有. 不然会报错. 
 
 直接安装 nvidia-container-toolkit, 会把driver 自动装了. https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html 
 
 https://askubuntu.com/questions/1436506/how-to-resolve-unmet-dependencies-error-when-upgrading-depends-nvidia-kernel-c   有这个问题. 根据这个网址的第一个回答可以显示nvidia-smi , 但是不能成功docker . 多重启几次. 
 
 nvidia-smi 报错：Failed to initialize NVML: Driver/library version mismatch - endRuz的文章 - 知乎 https://zhuanlan.zhihu.com/p/443208000  
-
-
 
 ```bash
 export $LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
