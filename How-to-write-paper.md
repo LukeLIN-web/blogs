@@ -249,7 +249,7 @@ Writing like this will make readers feel that two separate techniques are combin
 
 我测的参数太多方向了, 反而没有一个方向能用来写. 需要把一个表做透.  要把整个表列出来一个个做, 不能拍脑袋想测啥就测啥. 
 
-先把自己的调到最好, 再做消融实验, 
+先把自己的调到最好, 再做消融实验.
 
 windows 的本地端ppt 功能很强大, 每个组件都可以拖动调节留白,  wps 的excel 图表不能导出pdf, google sheet图表不能加阴影. 
 
