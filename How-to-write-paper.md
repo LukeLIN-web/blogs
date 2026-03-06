@@ -168,6 +168,13 @@ Generate the final diagram.
 
   https://github.com/yzhao062/cs-paper-checklist 
 
+画图写论文可以用 Claude Scholar：AI学术研究全流程助手 - Dawn的文章 - 知乎
+https://zhuanlan.zhihu.com/p/2005373649767658909
+
+
+
+
+
 用figma把矢量图图表字体调大，确保不放大看图也能一眼看清楚图表x轴y轴。疯狂用cursor让他以何凯明老师的风格，把abs和intro写到非常清晰，用斜体加粗一句话说明解决什么领域gap问题. 最关键是要icl，要拿你觉得比较好的论文的相关部分先丢给他，让他学一下写法.  kaiming暗通道的论文的写法
 
 找人一起写 paper. 就问他们有没有兴趣一起写paper。 作者顺序要最早定好不要之后换, 因为别人会根据这个来努力, 
