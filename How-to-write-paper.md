@@ -171,6 +171,12 @@ Generate the final diagram.
 画图写论文可以用 Claude Scholar：AI学术研究全流程助手 - Dawn的文章 - 知乎
 https://zhuanlan.zhihu.com/p/2005373649767658909
 
+https://github.com/hzwer/WritingAIPaper/blob/main/NotGoodIdeas.md
+
+https://github.com/hzwer/WritingAIPaper/blob/main/README.md 
+
+
+
 
 
 
@@ -446,6 +452,18 @@ https://github.com/lixin4ever/Conference-Acceptance-Rate
 ijcnn,  25 年 **39%**. 接受率.  Ijcnn是 ccf c,  中国人认为没有用, 回国没人看.不过投的人越来越多了, 23 年甚至 54% 接受率.  
 
 icip, ddl 2 月 4 日.   44% 接受率.
+
+### icann
+
+
+
+https://e-nns.org/icann2026/call-for-papers-2/
+
+https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2F
+
+https://cmt3.research.microsoft.com/ICANN2026/Submission/Index
+
+
 
 ## aaai
 
