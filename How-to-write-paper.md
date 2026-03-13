@@ -78,14 +78,6 @@ custom chart 里面用 vega 应该能算出新的曲线
 wandb  val, 之后, 输出几个视频看看.
 
 
-
-
-
-
-
-
-
-
 ### nanobanaba
 
 https://mp.weixin.qq.com/s/8MhSvE5pWhnofezxYfCzlg
