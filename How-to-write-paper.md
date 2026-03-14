@@ -73,8 +73,6 @@ wandb 可以隐藏.
 custom chart 里面用 vega 应该能算出新的曲线  
 有个report 和 compare 的功能, 
 
-
-
 wandb  val, 之后, 输出几个视频看看.
 
 
@@ -166,12 +164,6 @@ https://zhuanlan.zhihu.com/p/2005373649767658909
 https://github.com/hzwer/WritingAIPaper/blob/main/NotGoodIdeas.md
 
 https://github.com/hzwer/WritingAIPaper/blob/main/README.md 
-
-
-
-
-
-
 
 用figma把矢量图图表字体调大，确保不放大看图也能一眼看清楚图表x轴y轴。疯狂用cursor让他以何凯明老师的风格，把abs和intro写到非常清晰，用斜体加粗一句话说明解决什么领域gap问题. 最关键是要icl，要拿你觉得比较好的论文的相关部分先丢给他，让他学一下写法.  kaiming暗通道的论文的写法
 
